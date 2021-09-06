@@ -35,9 +35,11 @@ document.querySelectorAll('.saveBtn').forEach(function(el) {
 
 var savedInfoArray = []
 for (var i = 0; i < saveButtonIDs.length; i++){
-    console.log(JSON.parse(localStorage.getItem("myinput" + i)))
-    savedInfoArray[i] = JSON.parse(localStorage.getItem("myinput" + i))
-    $(textAreas[i]).val(savedInfoArray[i])
+//     // console.log(JSON.parse(localStorage.getItem("myinput" + i)))
+    if ("myinput" + i){
+        savedInfoArray[i] = JSON.parse(localStorage.getItem("myinput" + i))
+        $(textAreas[i]).val(savedInfoArray[i])
+    }
 }
 
 var clearBtn = $('.clear-btn')

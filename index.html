@@ -29,15 +29,23 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container">
+    <div class="container-fluid">
       <!-- Timeblocks go here -->
       <div class="row">
-        <div class="time-block col-2" id="09time">9AM</div>
-        <textarea class="col-8" id="09block"></textarea>
-        <div class="saveBtn fa fa-save col-2" id="save09"></div>
+        <div class="col-2 col-xl-2 hour" id="09time">9AM</div>
+        <div class="col-9 col-xl-9"><textarea id="09block"></textarea></div>
+        <!-- <textarea class="col-xl-8" id="09block"></textarea> -->
+        <div class="col-1 col-xl-1 saveBtn fas fa-save" id="save09"></div> <!--FIX THIS SAVE BUTTON-->
       </div>
+      <div class="row">
+        <div class="col-2 col-xl-2 hour" id="10time">10AM</div>
+        <div class="col-9 col-xl-9"><textarea class="col-xl-12" id="10block"></textarea></div>
+        <!-- <textarea class="col-xl-8" id="09block"></textarea> -->
+        <div class="saveBtn fas fa-save col-1 col-xl-1" id="save10">save</div>
+      </div>
+      
 
-      <hr>
+      <!-- <hr>
       <table>
         <tr class="row">
           <td class="time-block" id="09time">9AM</td>
@@ -85,7 +93,7 @@
           <td class="saveBtn fa fa-save" id="save17"></td>
         </tr>
 
-      </table>
+      </table> -->
       <button class="clear-btn">Clear</button>
     </div>
 
