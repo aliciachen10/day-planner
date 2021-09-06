@@ -26,6 +26,7 @@ var myinput = []
 document.querySelectorAll('.saveBtn').forEach(function(el) {
     el.addEventListener('click', function(event){
         event.preventDefault()
+        console.log(event.target)
         hourNumber = event.target.id.substring(4,6) //reference to that specific button
         console.log(hourNumber)
         hourBlock = "#" + hourNumber + "block"
@@ -70,8 +71,7 @@ $('#currentDay').text(moment().format("MMMM Do, YYYY"))
 //    is higher, lower or the same as the one in the cell next to it
 var currentHour = moment().format('H')
 // currentHour = 15;
-console.log(currentHour)
-console.log(parseInt(textAreas[0].substring(1, 3)))
+
 for (var i = 0; i < timeLabel.length; i++){
     timeTextList[i] = $(timeLabel[i]).text()
     var blockTime = parseInt(textAreas[i].substring(1, 3))
@@ -85,11 +85,11 @@ for (var i = 0; i < timeLabel.length; i++){
 }
 
 //old code
-var timeText = $('#12time').text()
-if (currentHour > timeText.substring(0,2)) {
-    $('#12block').attr('class', 'past')
-} else if (currentHour == timeText.substring(0,2)) {
-    $('#12block').attr('class', 'present')
-} else {   
-    $('12block').attr('class', 'future')
-}
+// var timeText = $('#12time').text()
+// if (currentHour > timeText.substring(0,2)) {
+//     $('#12block').attr('class', 'past')
+// } else if (currentHour == timeText.substring(0,2)) {
+//     $('#12block').attr('class', 'present')
+// } else {   
+//     $('12block').attr('class', 'future')
+// }
