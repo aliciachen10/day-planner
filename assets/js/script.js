@@ -27,6 +27,7 @@ document.querySelectorAll('.saveBtn').forEach(function(el) {
     el.addEventListener('click', function(event){
         event.preventDefault()
         hourNumber = event.target.id.substring(4,6) //reference to that specific button
+        console.log(hourNumber)
         hourBlock = "#" + hourNumber + "block"
         myinput[parseInt(hourNumber)-9] = $(hourBlock).val()
         localStorage.setItem("myinput" + (parseInt(hourNumber)-9), JSON.stringify(myinput[parseInt(hourNumber)-9]))
@@ -37,7 +38,7 @@ var savedInfoArray = []
 for (var i = 0; i < saveButtonIDs.length; i++){
 //     // console.log(JSON.parse(localStorage.getItem("myinput" + i)))
     if ("myinput" + i){
-        savedInfoArray[i] = JSON.parse(localStorage.getItem("myinput" + i))
+        savedInfoArray[i] = JSON.parse(localStorage.getItem("myinput" + i)) 
         $(textAreas[i]).val(savedInfoArray[i])
     }
 }
@@ -69,14 +70,16 @@ $('#currentDay').text(moment().format("MMMM Do, YYYY"))
 //    is higher, lower or the same as the one in the cell next to it
 var currentHour = moment().format('H')
 // currentHour = 15;
-
+console.log(currentHour)
+console.log(parseInt(textAreas[0].substring(1, 3)))
 for (var i = 0; i < timeLabel.length; i++){
     timeTextList[i] = $(timeLabel[i]).text()
-    if (currentHour > textAreas[i].substring(1, 3)) { 
+    var blockTime = parseInt(textAreas[i].substring(1, 3))
+    if (currentHour > blockTime) { 
         $(textAreas[i]).attr('class', 'past')
-    } else if (currentHour == textAreas[i].substring(1,3)) {
+    } else if (currentHour == blockTime) {
         $(textAreas[i]).attr('class', 'present')
-    } else {   
+    } else if (currentHour < blockTime) {   
         $(textAreas[i]).attr('class', 'future')
     }
 }
